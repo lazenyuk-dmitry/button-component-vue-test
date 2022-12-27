@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      timerStepMs: 1000, // Timer step in milliseconds.
+      timerStepMs: 1000, // Timer step in milliseconds. Now equal 1sec.
       timerCounter: 0,
       timerId: null,
     };
@@ -66,6 +66,11 @@ export default {
     timer: {
       handler(value) {
         let counter = value;
+        this.timerCounter = value;
+
+        if (value === 0) {
+          return;
+        }
 
         this.timerId = setInterval(() => {
           counter = counter <= 0 ? 0 : counter - this.timerStepMs;
@@ -73,6 +78,7 @@ export default {
 
           if (counter === 0) {
             clearInterval(this.timerId);
+            this.$emit("timerEnd");
           }
         }, this.timerStepMs);
       },
@@ -153,7 +159,7 @@ $btn-padding: 14px 45px;
 }
 
 .btnTimer {
-  min-width: 54px;
+  min-width: 56px;
   padding: 1px 5px;
   margin-left: 6px;
   border-radius: 5px;
