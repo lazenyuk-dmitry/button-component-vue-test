@@ -14,6 +14,14 @@ import AppButton from "@/components/AppButton.vue";
       <AppButton :class="$style.btn" color="danger">Отправить письмо</AppButton>
       <AppButton :class="$style.btn" color="action">Отправить письмо</AppButton>
     </div>
+
+    <h3>button link</h3>
+    <div :class="$style.buttonContainer">
+      <AppButton :class="$style.btn" href="#">Напомнить PIN-код</AppButton>
+      <AppButton :class="$style.btn" href="https://www.google.com/">Google.com</AppButton>
+      <AppButton :class="$style.btn" to="/example-page">Example Page</AppButton>
+      <AppButton :class="$style.btn" to="/example-page" target="_blank">Example Page (Open in new window)</AppButton>
+    </div>
   </main>
 </template>
 
@@ -21,6 +29,7 @@ import AppButton from "@/components/AppButton.vue";
 .buttonContainer {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 
   .btn {
     margin: 20px;

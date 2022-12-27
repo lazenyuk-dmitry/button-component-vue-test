@@ -1,5 +1,18 @@
 <template>
-  <button :class="[$style.btn, colorClass]" type="button" v-bind="$attrs">
+  <a
+    v-if="getLinkHref"
+    :href="getLinkHref"
+    :class="$style.link"
+    v-bind="$attrs"
+  >
+    <slot />
+  </a>
+  <button
+    v-else
+    :class="[$style.btn, colorClass]"
+    type="button"
+    v-bind="$attrs"
+  >
     <slot />
   </button>
 </template>
@@ -22,10 +35,21 @@ export default {
         ].includes(value);
       },
     },
+    href: {
+      type: String,
+      default: null,
+    },
+    to: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     colorClass() {
       return this.$style[`btn--${this.color}`];
+    },
+    getLinkHref() {
+      return this.to ? this.$router.resolve(this.to).href : this.href;
     },
   },
 };
@@ -33,9 +57,10 @@ export default {
 
 <style lang="scss" module>
 $transition-time: 0.3s;
+$btn-padding: 14px 45px;
 
 .btn {
-  padding: 14px 45px;
+  padding: $btn-padding;
   background: $color-primary;
   box-shadow: $btn-shadow;
   border-radius: 15px;
@@ -80,6 +105,33 @@ $transition-time: 0.3s;
     color: $btn-text-color-second;
     cursor: not-allowed;
     opacity: 1;
+    transition: $transition-time;
+  }
+}
+
+.link {
+  padding: $btn-padding;
+  background: transparent;
+  border: none;
+  color: $btn-text-color;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration-line: underline;
+  transition: $transition-time;
+
+  &:visited {
+    color: $link-pressed-color;
+    transition: $transition-time;
+  }
+
+  &:hover {
+    color: $link-hover-color;
     transition: $transition-time;
   }
 }
