@@ -1,7 +1,3 @@
-<script setup>
-import AppButton from "@/components/AppButton.vue";
-</script>
-
 <template>
   <main>
     <h3>button classic</h3>
@@ -22,8 +18,19 @@ import AppButton from "@/components/AppButton.vue";
       <AppButton :class="$style.btn" to="/example-page">Example Page</AppButton>
       <AppButton :class="$style.btn" to="/example-page" target="_blank">Example Page (Open in new window)</AppButton>
     </div>
+
+    <h3>button timer</h3>
+    <div :class="$style.buttonContainer">
+      <AppButton :class="$style.btn" color="action" :timer="180000">Нажми меня</AppButton>
+      <AppButton :class="$style.btn" :timer="180000" disabled>Отправить письмо</AppButton>
+      <AppButton :class="$style.btn" color="info" :timer="30000">Просто таймер</AppButton>
+    </div>
   </main>
 </template>
+
+<script setup>
+import AppButton from "@/components/AppButton.vue";
+</script>
 
 <style lang="scss" module>
 .buttonContainer {

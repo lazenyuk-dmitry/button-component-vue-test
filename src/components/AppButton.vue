@@ -14,10 +14,16 @@
     v-bind="$attrs"
   >
     <slot />
+
+    <span v-if="timerCounter" :class="$style.btnTimer">
+      {{ getTimerString }}
+    </span>
   </button>
 </template>
 
 <script>
+import { numFormatter } from "~helpers";
+
 export default {
   name: "AppButton",
   props: {
@@ -43,6 +49,35 @@ export default {
       type: String,
       default: null,
     },
+    // Timer value in milliseconds
+    timer: {
+      type: Number,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      timerStepMs: 1000, // Timer step in milliseconds.
+      timerCounter: 0,
+      timerId: null,
+    };
+  },
+  watch: {
+    timer: {
+      handler(value) {
+        let counter = value;
+
+        this.timerId = setInterval(() => {
+          counter = counter <= 0 ? 0 : counter - this.timerStepMs;
+          this.timerCounter = counter;
+
+          if (counter === 0) {
+            clearInterval(this.timerId);
+          }
+        }, this.timerStepMs);
+      },
+      immediate: true,
+    },
   },
   computed: {
     colorClass() {
@@ -50,6 +85,14 @@ export default {
     },
     getLinkHref() {
       return this.to ? this.$router.resolve(this.to).href : this.href;
+    },
+    getTimerString() {
+      const milliseconds = this.timerCounter;
+
+      const seconds = Math.floor((milliseconds / 1000) % 60);
+      const minutes = Math.floor((milliseconds / (60 * 1000)) % 60);
+
+      return `${numFormatter(minutes, 2)}:${numFormatter(seconds, 2)}`;
     },
   },
 };
@@ -109,6 +152,16 @@ $btn-padding: 14px 45px;
   }
 }
 
+.btnTimer {
+  min-width: 54px;
+  padding: 1px 5px;
+  margin-left: 6px;
+  border-radius: 5px;
+  background-color: $color-danger;
+  color: $btn-text-color;
+}
+
+// Link button
 .link {
   padding: $btn-padding;
   background: transparent;
