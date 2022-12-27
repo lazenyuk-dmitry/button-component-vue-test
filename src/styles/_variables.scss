@@ -1,0 +1,23 @@
+// Base
+$bg-color: #1E1E1E;
+$main-text-color: #FFFFFF;
+$inactive-text-color: #767679;
+
+// Colors
+$color-primary: #702C7E;
+$color-secondary: #C4296C;
+$color-warning: #F4BA46;
+$color-disabled: #EFEFEF;
+$color-info: #0083B6;
+$color-danger: #DF3F3E;
+$color-action: #ED732E;
+
+// Buttons
+$btn-text-color: $main-text-color;
+$btn-text-color-second: $inactive-text-color;
+$btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+// Links
+$link-main-color: $main-text-color;
+$link-hover-color: $btn-text-color-second;
+$link-pressed-color: $color-secondary;

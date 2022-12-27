@@ -4,6 +4,9 @@ import AppButton from "@/components/AppButton.vue";
 
 <template>
   <main>
-    <AppButton />
+    <h3>button classic порпоррор</h3>
+    <div>
+      <AppButton>Отправить письмо</AppButton>
+    </div>
   </main>
 </template>
