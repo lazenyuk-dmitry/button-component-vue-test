@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import AppButton from "@/components/AppButton.vue";
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <AppButton />
   </main>
 </template>
