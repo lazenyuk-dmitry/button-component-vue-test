@@ -23,16 +23,11 @@ export default {
       required: false,
     },
   },
-  data() {
-    return {
-      iconURL: null,
-    };
-  },
   computed: {
     url() {
       const path = REGISTER_ICONS[this.icon];
 
-      return path ? new URL(path, import.meta.url).href : null;
+      return path || null;
     },
   },
 };

@@ -5,8 +5,16 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  base: "button-component-vue-test",
+  plugins: [
+    vue({
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false,
+        },
+      },
+    }),
+  ],
+  base: "/button-component-vue-test",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
