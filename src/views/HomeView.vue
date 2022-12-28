@@ -43,6 +43,34 @@
         Просто таймер
       </AppButton>
     </div>
+
+    <h3>button multi-sized</h3>
+    <div :class="$style.buttonContainer">
+      <AppButton :class="$style.btn">
+        <AppIcon icon="arrowBack" />
+      </AppButton>
+      <AppButton :class="$style.btn" color="danger">
+        <AppIcon icon="exit" />
+      </AppButton>
+      <AppButton :class="$style.btn" color="quest">
+        <AppIcon icon="quest" />
+      </AppButton>
+      <AppButton :class="$style.btn">
+        <AppIcon icon="arrowNext" />
+      </AppButton>
+      <AppButton :class="$style.btn" color="danger">
+        <AppIcon icon="google" />
+      </AppButton>
+      <AppButton :class="$style.btn" color="info">
+        <AppIcon icon="vk" />
+      </AppButton>
+      <AppButton :class="$style.btn" color="action">
+        <AppIcon icon="ok" />
+      </AppButton>
+      <AppButton :class="$style.btn">
+        <AppIcon icon="pen" />
+      </AppButton>
+    </div>
   </main>
 </template>
 
@@ -56,6 +84,7 @@
 <script setup>
 import { ref } from "vue";
 import AppButton from "@/components/AppButton.vue";
+import AppIcon from "@/components/AppIcon.vue";
 
 let clickMeTimer = ref(0);
 let clickMeIsDisabled = false;

@@ -38,6 +38,7 @@ export default {
           "info",
           "danger",
           "action",
+          "quest",
         ].includes(value);
       },
     },
@@ -148,6 +149,9 @@ $btn-padding: 14px 45px;
   }
   &--action {
     background: $color-action;
+  }
+  &--quest {
+    background: $color-quest;
   }
   &:disabled {
     background: $color-disabled;
