@@ -14,6 +14,9 @@ export default defineConfig({
       "~styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
       "~helpers": fileURLToPath(new URL("./src/helpers", import.meta.url)),
       "~constants": fileURLToPath(new URL("./src/constants", import.meta.url)),
+      "~examples": fileURLToPath(
+        new URL("./src/code-examples", import.meta.url)
+      ),
     },
   },
   css: {
