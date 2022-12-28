@@ -1,26 +1,9 @@
 <template>
-  <object
-    v-if="url"
-    type="image/svg+xml"
-    :data="url"
-    :height="height"
-    :width="width"
-    v-bind="$attrs"
-  ></object>
+  <img v-if="url" :src="url" :height="height" :width="width" v-bind="$attrs" />
 </template>
 
 <script>
-const ICONS_PATH = new URL("~icons", import.meta.url);
-const REGISTER_ICONS = {
-  arrowBack: `${ICONS_PATH}/arrow-back.svg`,
-  arrowNext: `${ICONS_PATH}/arrow-next.svg`,
-  ok: `${ICONS_PATH}/class.svg`,
-  exit: `${ICONS_PATH}/exit.svg`,
-  google: `${ICONS_PATH}/google.svg`,
-  pen: `${ICONS_PATH}/pen.svg`,
-  quest: `${ICONS_PATH}/quest.svg`,
-  vk: `${ICONS_PATH}/vk.svg`,
-};
+import { REGISTER_ICONS } from "~constants";
 
 export default {
   name: "AppIcon",
@@ -54,5 +37,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" module></style>

@@ -46,30 +46,14 @@
 
     <h3>button multi-sized</h3>
     <div :class="$style.buttonContainer">
-      <AppButton :class="$style.btn">
-        <AppIcon icon="arrowBack" />
-      </AppButton>
-      <AppButton :class="$style.btn" color="danger">
-        <AppIcon icon="exit" />
-      </AppButton>
-      <AppButton :class="$style.btn" color="quest">
-        <AppIcon icon="quest" />
-      </AppButton>
-      <AppButton :class="$style.btn">
-        <AppIcon icon="arrowNext" />
-      </AppButton>
-      <AppButton :class="$style.btn" color="danger">
-        <AppIcon icon="google" />
-      </AppButton>
-      <AppButton :class="$style.btn" color="info">
-        <AppIcon icon="vk" />
-      </AppButton>
-      <AppButton :class="$style.btn" color="action">
-        <AppIcon icon="ok" />
-      </AppButton>
-      <AppButton :class="$style.btn">
-        <AppIcon icon="pen" />
-      </AppButton>
+      <AppButton :class="$style.btn" icon="arrowBack" />
+      <AppButton :class="$style.btn" color="danger" icon="exit" />
+      <AppButton :class="$style.btn" color="quest" icon="quest" />
+      <AppButton :class="$style.btn" icon="arrowNext" />
+      <AppButton :class="$style.btn" color="danger" icon="google" />
+      <AppButton :class="$style.btn" color="info" icon="vk" />
+      <AppButton :class="$style.btn" color="action" icon="ok" />
+      <AppButton :class="$style.btn" icon="pen" />
     </div>
   </main>
 </template>
@@ -84,7 +68,6 @@
 <script setup>
 import { ref } from "vue";
 import AppButton from "@/components/AppButton.vue";
-import AppIcon from "@/components/AppIcon.vue";
 
 let clickMeTimer = ref(0);
 let clickMeIsDisabled = false;

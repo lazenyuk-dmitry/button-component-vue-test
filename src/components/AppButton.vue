@@ -9,11 +9,13 @@
   </a>
   <button
     v-else
-    :class="[$style.btn, colorClass]"
+    :class="[$style.btn, colorClass, { [$style['btn--multi']]: icon }]"
     type="button"
     v-bind="$attrs"
   >
-    <slot />
+    <AppIcon v-if="icon" :icon="icon" :class="$style.icon" />
+
+    <slot v-else />
 
     <span v-if="timerCounter" :class="$style.btnTimer">
       {{ getTimerString }}
@@ -22,10 +24,15 @@
 </template>
 
 <script>
+import AppIcon from "@/components/AppIcon.vue";
+import { REGISTER_ICONS } from "~constants";
 import { numFormatter } from "~helpers";
 
 export default {
   name: "AppButton",
+  components: {
+    AppIcon,
+  },
   props: {
     color: {
       type: String,
@@ -40,6 +47,13 @@ export default {
           "action",
           "quest",
         ].includes(value);
+      },
+    },
+    icon: {
+      type: String,
+      default: null,
+      validator(value) {
+        return Object.keys(REGISTER_ICONS).includes(value);
       },
     },
     href: {
@@ -160,6 +174,18 @@ $btn-padding: 14px 45px;
     opacity: 1;
     transition: $transition-time;
   }
+
+  &--multi {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 35% 35% 31% 35% / 36% 40% 48% 36%;
+
+    @media (max-width: $mobile-media) {
+      width: 52px;
+      height: 52px;
+    }
+  }
 }
 
 .btnTimer {
@@ -196,6 +222,17 @@ $btn-padding: 14px 45px;
   &:hover {
     color: $link-hover-color;
     transition: $transition-time;
+  }
+}
+
+// Icon
+.icon {
+  max-width: 42px;
+  max-height: 42px;
+
+  @media (max-width: $mobile-media) {
+    max-width: 24px;
+    max-height: 24px;
   }
 }
 </style>
