@@ -112,7 +112,7 @@ $btn-padding: 14px 45px;
   padding: $btn-padding;
   background: $color-primary;
   box-shadow: $btn-shadow;
-  border-radius: 20px;
+  border-radius: 7% 6% 8% 7% / 37% 44% 35% 54%;
   border: none;
   font-family: "Phosphate";
   font-style: normal;
@@ -162,7 +162,7 @@ $btn-padding: 14px 45px;
   min-width: 56px;
   padding: 1px 5px;
   margin-left: 6px;
-  border-radius: 10px;
+  border-radius: 19% 20% 19% 24% / 46% 55% 39% 56%;
   background-color: $color-danger;
   color: $btn-text-color;
 }
