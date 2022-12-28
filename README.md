@@ -1,6 +1,8 @@
 # Button Commponent
 
 This template should help get you started developing with Vue 3 in Vite.
+This is a test task.
+**[DEMO](https://lazenyuk-dmitry.github.io/button-component-vue-test/)**
 
 ## Recommended IDE Setup
 

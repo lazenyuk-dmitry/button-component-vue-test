@@ -1,6 +1,19 @@
 <template>
   <main>
     <section :class="$style.section">
+      <p>
+        This is a test task. Implementation of the button component for the application.
+        <br>
+        <AppButton
+          :class="$style.btn"
+          href="https://github.com/lazenyuk-dmitry/button-component-vue-test"
+          target="_blank"
+        >
+          Code on GitHub
+        </AppButton>
+      </p>
+    </section>
+    <section :class="$style.section">
       <h3>button classic</h3>
       <div :class="$style.buttonContainer">
         <AppButton :class="$style.btn">Отправить письмо</AppButton>
